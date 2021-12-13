@@ -14,8 +14,10 @@ def index():
 @app.route('/predict', methods=['POST'])
 def predict():
     features = [float(i) for i in request.form.values()]
-    array_features = [np.array(features)]
-    prediction = model.predict(array_features)
+#     array_features = [np.array(features)]
+    data = []
+    data.append(int(features))
+    prediction = model.predict(data)
     
     return render_template('index.html', result = str(*prediction))
 
