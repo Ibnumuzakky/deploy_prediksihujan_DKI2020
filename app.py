@@ -16,7 +16,7 @@ def predict():
     features = [float(i) for i in request.form.values()]
 #     array_features = [np.array(features)]
     data = []
-    data.append(int(features))
+    data.append(features)
     prediction = model.predict(data)
     
     return render_template('index.html', result = str(*prediction))
